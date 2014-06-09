@@ -33,7 +33,11 @@ build.properties
 /tests/system/servers/configdef.php
 /tests/system/webdriver/tests/logs/
 
+# Folder to store the temp cloned repositories
+/tmp/
+
 # Never ignore
+/tmp/index.html
 !.gitignore
 !index.html
 !index.php
