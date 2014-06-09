@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ==================================================================  -->
+<!-- Imports language files from it's own repos to the translation repo  -->
+<!--                                                                     -->
+<!-- note: you need to previously set your SSH local keys to work with   -->
+<!--       Github                                                        -->
+<!-- ==================================================================  -->
+<project name="en-GB-updater" default="updaterepos">
+	<target name="updaterepos">
+		<echo>Importing the individual PHING files:</echo>
+		<echo> - Updating redITEM2</echo>
+		<phing phingfile="reditem2/updater.xml" target="update" />
+	</target>
+	<!-- redITEM2 -->
+</project>
