@@ -20,7 +20,7 @@
 		           allFiles="true"
 		           message="Updating language files on ${build.date}"/>
 
-		<gitpush repository="https://github.com/redCOMPONENT-COM/translations.git" />
+		<gitpush repository="${project.basedir}" />
 	</target>
 	<!-- redITEM2 -->
 </project>
