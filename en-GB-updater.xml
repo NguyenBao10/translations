@@ -8,7 +8,7 @@
 <project name="en-GB-updater" default="updaterepos">
 
 	<tstamp>
-		<format property="build.date" pattern="%Y-%m-%d %H:$M:%S" />
+		<format property="build.date" pattern="%Y-%m-%d %H:$m:%S" />
 	</tstamp>
 
 	<target name="updaterepos">
