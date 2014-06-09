@@ -6,13 +6,14 @@
 <!--       Github                                                        -->
 <!-- ==================================================================  -->
 <project name="reditem2" default="update">
-	<target name="update">
+	<target name="github-clone">
 		<echo>Updating en-GB redITEM2 files</echo>
 		<delete dir="${project.basedir}/${phing.project.name}/tmp/" />
 		<gitclone repository="https://github.com/redCOMPONENT-COM/redITEM2.git"
 		          targetPath="${project.basedir}/${phing.project.name}/tmp/"
 				/>
-
+	</target>
+	<target name="update" depends="github-clone">
 		<!-- override component/admin resources -->
 		<echo msg="Copying redITEM2 component language files"/>
 		<copy todir="${project.basedir}/${phing.project.name}/source/component/backend/en-GB/">

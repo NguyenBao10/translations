@@ -6,10 +6,20 @@
 <!--       Github                                                        -->
 <!-- ==================================================================  -->
 <project name="en-GB-updater" default="updaterepos">
+
+	<tstamp>
+		<format property="build.date" pattern="%Y-%m-%d" />
+	</tstamp>
+
 	<target name="updaterepos">
 		<echo>Importing the individual PHING files:</echo>
 		<echo> - Updating redITEM2</echo>
 		<phing phingfile="reditem2/updater.xml" target="update" />
+		
+		<gitcommit repository="${project.basedir}"
+		           allFiles="true"
+		           message="Updating language files on ${build.date}"/>
+
 	</target>
 	<!-- redITEM2 -->
 </project>
