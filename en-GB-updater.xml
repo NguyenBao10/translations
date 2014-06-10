@@ -7,6 +7,10 @@
 <!-- ==================================================================  -->
 <project name="en-GB-updater" default="updaterepos">
 
+	<property file="build.properties" override="true" />
+
+	<property name="upload_to_github" value="true" override="true"/>
+
 	<tstamp>
 		<format property="build.date" pattern="%Y-%m-%d %H:%M:%S" />
 	</tstamp>
@@ -15,12 +19,16 @@
 		<echo>Importing the individual PHING files:</echo>
 		<echo> - Updating redITEM2</echo>
 		<phing phingfile="reditem2/updater.xml" target="update" />
-		
-		<gitcommit repository="${project.basedir}"
-		           allFiles="true"
-		           message="Updating language files on ${build.date}"/>
 
-		<gitpush repository="${project.basedir}" />
+		<if>
+			<istrue value="${upload_to_github}" />
+			<then>
+				<gitcommit repository="${project.basedir}"
+				           allFiles="true"
+				           message="Updating language files on ${build.date}"/>
+
+				<gitpush repository="${project.basedir}" />
+			</then>
+		</if>
 	</target>
-	<!-- redITEM2 -->
 </project>
