@@ -30,6 +30,7 @@
 				<exclude name=".*"/>
 			</fileset>
 		</copy>
+
 		<!-- overwrite modules/site resources -->
 		<echo msg="Copying mod_reditem_categories language files"/>
 		<copy todir="${project.basedir}/${phing.project.name}/source/modules/site/mod_reditem_categories/en-GB/">
@@ -55,6 +56,44 @@
 		<echo msg="Copying mod_reditem_relateditems language files"/>
 		<copy todir="${project.basedir}/${phing.project.name}/source/modules/site/mod_reditem_relateditems/en-GB/">
 			<fileset dir="${project.basedir}/${phing.project.name}/tmp/modules/site/mod_reditem_relateditems/language/en-GB">
+				<include name="*.ini" />
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+
+		<!-- overwrite Plugins resources -->
+		<echo msg="Copying plugin content/reditem_tags files"/>
+		<copy todir="${project.basedir}/${phing.project.name}/source/plugins/content/reditem_tags/en-GB/">
+			<fileset dir="${project.basedir}/${phing.project.name}/tmp/plugins/content/reditem_tags/language/en-GB">
+				<include name="*.ini" />
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+		<echo msg="Copying plugin search/reditem_categories files"/>
+		<copy todir="${project.basedir}/${phing.project.name}/source/plugins/search/reditem_categories/en-GB/">
+			<fileset dir="${project.basedir}/${phing.project.name}/tmp/plugins/search/reditem_categories/language/en-GB">
+				<include name="*.ini" />
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+		<echo msg="Copying plugin search/reditem_items files"/>
+		<copy todir="${project.basedir}/${phing.project.name}/source/plugins/search/reditem_items/en-GB/">
+			<fileset dir="${project.basedir}/${phing.project.name}/tmp/plugins/search/reditem_items/language/en-GB">
+				<include name="*.ini" />
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+
+		<!-- overwrite Extras/component resources -->
+		<echo msg="Copying plugin extras/reditemcategoryfields files"/>
+		<copy todir="${project.basedir}/${phing.project.name}/source/extras/reditemcategoryfields/admin/en-GB/">
+			<fileset dir="${project.basedir}/${phing.project.name}/tmp/extras/reditemcategoryfields/admin/language/en-GB">
+				<include name="*.ini" />
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+		<copy todir="${project.basedir}/${phing.project.name}/source/extras/reditemcategoryfields/plugins/reditem_categories/category_fields/en-GB/">
+			<fileset dir="${project.basedir}/${phing.project.name}/tmp/extras/reditemcategoryfields/plugins/reditem_categories/category_fields/language/en-GB">
 				<include name="*.ini" />
 				<exclude name=".*"/>
 			</fileset>
