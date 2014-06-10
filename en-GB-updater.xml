@@ -9,7 +9,7 @@
 
 	<property file="build.properties" override="true" />
 
-	<property name="upload_to_github" value="${push}" override="true"/>
+	<property name="upload_to_github" value="true" override="true"/>
 
 	<tstamp>
 		<format property="build.date" pattern="%Y-%m-%d %H:%M:%S" />

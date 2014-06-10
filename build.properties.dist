@@ -3,4 +3,4 @@
 # more info at: https://redweb.atlassian.net/wiki/display/RWEB/Using+PHING+for+packaging+and+testing+an+extension
 
 # Do you want this PHING script to push the updated files?
-push=false
+upload_to_github=false
