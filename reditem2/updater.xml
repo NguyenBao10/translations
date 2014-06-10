@@ -14,7 +14,7 @@
 				/>
 	</target>
 	<target name="update" depends="github-clone">
-		<!-- override component/admin resources -->
+		<!-- overwrite component/admin resources -->
 		<echo msg="Copying redITEM2 component language files"/>
 		<copy todir="${project.basedir}/${phing.project.name}/source/component/backend/en-GB/">
 				<fileset dir="${project.basedir}/${phing.project.name}/tmp/component/admin/language/en-GB">
@@ -22,10 +22,39 @@
 					<exclude name=".*"/>
 				</fileset>
 		</copy>
-		<!-- override component/site resources -->
+		<!-- overwrite component/site resources -->
 		<echo msg="Copying redITEM2 component language files"/>
 		<copy todir="${project.basedir}/${phing.project.name}/source/component/frontend/en-GB/">
 			<fileset dir="${project.basedir}/${phing.project.name}/tmp/component/site/language/en-GB">
+				<include name="*.ini" />
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+		<!-- overwrite modules/site resources -->
+		<echo msg="Copying mod_reditem_categories language files"/>
+		<copy todir="${project.basedir}/${phing.project.name}/source/modules/site/mod_reditem_categories/en-GB/">
+			<fileset dir="${project.basedir}/${phing.project.name}/tmp/modules/site/mod_reditem_categories/language/en-GB">
+				<include name="*.ini" />
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+		<echo msg="Copying mod_reditem_categories_gmap language files"/>
+		<copy todir="${project.basedir}/${phing.project.name}/source/modules/site/mod_reditem_categories_gmap/en-GB/">
+			<fileset dir="${project.basedir}/${phing.project.name}/tmp/modules/site/mod_reditem_categories_gmap/language/en-GB">
+				<include name="*.ini" />
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+		<echo msg="Copying mod_reditem_items language files"/>
+		<copy todir="${project.basedir}/${phing.project.name}/source/modules/site/mod_reditem_items/en-GB/">
+			<fileset dir="${project.basedir}/${phing.project.name}/tmp/modules/site/mod_reditem_items/language/en-GB">
+				<include name="*.ini" />
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+		<echo msg="Copying mod_reditem_relateditems language files"/>
+		<copy todir="${project.basedir}/${phing.project.name}/source/modules/site/mod_reditem_relateditems/en-GB/">
+			<fileset dir="${project.basedir}/${phing.project.name}/tmp/modules/site/mod_reditem_relateditems/language/en-GB">
 				<include name="*.ini" />
 				<exclude name=".*"/>
 			</fileset>
