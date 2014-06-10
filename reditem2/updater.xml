@@ -94,8 +94,8 @@
 		</copy>
 
 		<!-- overwrite Extras/Plugins resources -->
-		<copy todir="${project.basedir}/${phing.project.name}/source/extras/reditemcategoryfields/plugins/reditem_categories/category_fields/en-GB/">
-			<fileset dir="${project.basedir}/${phing.project.name}/tmp/plugins/reditem_categories/category_fields/en-GB">
+		<copy todir="${project.basedir}/${phing.project.name}/source/plugins/reditem_categories/category_fields/en-GB/">
+			<fileset dir="${project.basedir}/${phing.project.name}/tmp/extras/reditemcategoryfields/plugins/reditem_categories/category_fieldsplugins/reditem_categories/category_fields/language/en-GB">
 				<include name="*.ini" />
 				<exclude name=".*"/>
 			</fileset>
