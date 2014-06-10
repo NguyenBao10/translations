@@ -9,8 +9,6 @@
 
 	<property file="build.properties" override="true" />
 
-	<property name="upload_to_github" value="true" override="true" userProperty="true"/>
-
 	<tstamp>
 		<format property="build.date" pattern="%Y-%m-%d %H:%M:%S" />
 	</tstamp>
@@ -21,7 +19,7 @@
 		<phing phingfile="reditem2/updater.xml" target="update" />
 
 		<if>
-			<istrue value="${upload_to_github}" />
+			<isfalse value="${upload_to_github}" />
 			<then>
 				<gitcommit repository="${project.basedir}"
 				           allFiles="true"
