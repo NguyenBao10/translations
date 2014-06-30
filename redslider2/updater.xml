@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ==================================================================  -->
+<!-- Imports language files from it's own repos to the translation repo  -->
+<!--                                                                     -->
+<!-- note: you need to previously set your SSH local keys to work with   -->
+<!--       Github                                                        -->
+<!-- ==================================================================  -->
+<project name="redslider2" default="update">
+	<target name="github-clone">
+		<echo>Updating en-GB redSLIDER2 files</echo>
+		<delete dir="${project.basedir}/tmp/" />
+		<gitclone repository="https://github.com/redCOMPONENT-COM/redSLIDER2.git"
+		          targetPath="${project.basedir}/tmp/"
+				/>
+	</target>
+	<target name="update" depends="github-clone">
+		<!-- overwrite component/admin resources -->
+		<echo msg="Copying redSLIDER2 component language files"/>
+		<copy todir="${project.basedir}/source/component/backend/en-GB/">
+				<fileset dir="${project.basedir}/tmp/component/admin/language/en-GB">
+					<include name="*.ini" />
+					<exclude name=".*"/>
+				</fileset>
+		</copy>
+
+		<!-- overwrite modules/site resources -->
+		<echo msg="Copying mod_redslider language files"/>
+		<copy todir="${project.basedir}/source/modules/site/mod_redslider/en-GB/">
+			<fileset dir="${project.basedir}/tmp/modules/site/mod_redslider/language/en-GB">
+				<include name="*.ini" />
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+
+		<!-- overwrite Plugins resources -->
+		<echo msg="Copying plugin section_article files"/>
+		<copy todir="${project.basedir}/source/plugins/redslider_sections/section_article/language/en-GB/">
+			<fileset dir="${project.basedir}/tmp/plugins/redslider_sections/section_article/language/en-GB">
+				<include name="*.ini" />
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+
+		<echo msg="Copying plugin section_standard files"/>
+		<copy todir="${project.basedir}/source/plugins/redslider_sections/section_standard/language/en-GB/">
+			<fileset dir="${project.basedir}/tmp/plugins/redslider_sections/section_standard/language/en-GB">
+				<include name="*.ini" />
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+
+		<echo msg="Copying plugin section_video files"/>
+		<copy todir="${project.basedir}/source/plugins/redslider_sections/section_video/language/en-GB/">
+			<fileset dir="${project.basedir}/tmp/plugins/redslider_sections/section_video/language/en-GB">
+				<include name="*.ini" />
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+
+		<echo msg="Copying plugin section_redform files"/>
+		<copy todir="${project.basedir}/source/plugins/redslider_sections/section_redform/language/en-GB/">
+			<fileset dir="${project.basedir}/tmp/plugins/redslider_sections/section_redform/language/en-GB">
+				<include name="*.ini" />
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+
+		<echo msg="Copying plugin section_redevent files"/>
+		<copy todir="${project.basedir}/source/plugins/redslider_sections/section_redevent/language/en-GB/">
+			<fileset dir="${project.basedir}/tmp/plugins/redslider_sections/section_redevent/language/en-GB">
+				<include name="*.ini" />
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+
+		<echo msg="Copying plugin section_redshop files"/>
+		<copy todir="${project.basedir}/source/plugins/redslider_sections/section_redshop/language/en-GB/">
+			<fileset dir="${project.basedir}/tmp/plugins/redslider_sections/section_redshop/language/en-GB">
+				<include name="*.ini" />
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+	</target>
+</project>
