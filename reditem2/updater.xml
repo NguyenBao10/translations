@@ -94,7 +94,7 @@
 		</copy>
 
 		<!-- overwrite Extras/Plugins resources -->
-		<copy todir="${project.basedir}/source/com_reditemcategoryfields/plugins/reditem_categories/category_fields/en-GB/">
+		<copy todir="${project.basedir}/source/com_reditemcategoryfields/plugins/en-GB/">
 			<fileset dir="${project.basedir}/tmp/com_reditemcategoryfields/plugins/reditem_categories/category_fields/language/en-GB">
 				<include name="*.ini" />
 				<exclude name=".*"/>
