@@ -29,9 +29,9 @@ Desktop.ini
 # Phing build script
 build.properties
 
-# Test related files
-/tests/system/servers/configdef.php
-/tests/system/webdriver/tests/logs/
+# Transifex credential files
+*.transifexrc
+*/transifex/*
 
 # Folder to store the temp cloned repositories
 */tmp*

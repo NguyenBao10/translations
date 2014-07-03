@@ -1,0 +1,8 @@
+# Properties files are configuration files used by PHING scripts containing:
+# key=value
+# more info at: https://redweb.atlassian.net/wiki/display/RWEB/Using+PHING+for+packaging+and+testing+an+extension
+
+transifex.host=https://www.transifex.com/projects/p/redslider2
+transifex.user=YOUR_TRANSIFEX_USER
+transifex.pass=YOUR_TRANSIFEX_PASSWORD
+

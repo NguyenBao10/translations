@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ==================================================================  -->
+<!-- Imports language files from transifex and generates the lang pack   -->
+<!--                                                                     -->
+<!-- note: you need to previously instrall transifex client. See:        -->
+<!--       http://docs.transifex.com/developer/client/setup              -->
+<!-- ==================================================================  -->
+<project name="redslider2" default="generate-package">
+	<target name="get-transifex-files">
+		<property file="build.properties" override="true" />
+		<echo>Creating transifex project ${project.name}</echo>
+		<delete dir="${project.basedir}/transifex/" />
+		<mkdir dir="${project.basedir}/transifex/" />
+		<exec
+				command="tx init --host=${transifex.host} --user=${transifex.user} --user=${transifex.pass}"
+				dir="transifex/"
+				/>
+		<exec
+				command="tx -d set --auto-remote ${transifex.host}"
+				dir="transifex/"
+				/>
+		<exec
+				command="tx pull -a"
+				dir="transifex/"
+				/>
+	</target>
+
+	<target name="copy-files" depends="get-transifex-files">
+		<echo>TODO: Copying translations</echo>
+
+	<!--
+	<copy
+			file="${config.template}"
+			tofile="${config.file}">	</target>
+	-->
+	</target>
+	<target name="generate-package" depends="copy-files">
+		<echo>TODO: Generating lang package</echo>
+	</target>
+</project>
