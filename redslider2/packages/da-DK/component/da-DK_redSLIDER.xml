@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="file" method="upgrade" version="2.5">
+    <name>redSLIDER - da-DK</name>
+    <version>2014-04-25</version>
+    <creationDate>25.04.2014</creationDate>
+    <author>redCOMPONENT.com</author>
+    <authorEmail>ole@redcomponent.com</authorEmail>
+    <authorUrl>http://redcomponent.com</authorUrl>
+    <copyright>© 2008-2014 - redCOMPONENT-com. All rights reserved!</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <description>
+        <![CDATA[Danish language for redSLIDER component]]>
+    </description>
+    <fileset>
+        <files folder="backend" target="administrator/language/da-DK">
+	        <filename>da-DK.com_redslider.ini</filename>
+	        <filename>da-DK.com_redslider.sys.ini</filename>
+	        <filename>da-DK.mod_redslider.sys.ini</filename>
+	        <filename>da-DK.mod_redslider.sys.ini</filename>
+	        <filename>da-DK.plg_redslider_sections_section_standard.ini</filename>
+	        <filename>da-DK.plg_redslider_sections_section_standard.sys.ini</filename>
+	        <filename>da-DK.plg_redslider_sections_section_article.ini</filename>
+	        <filename>da-DK.plg_redslider_sections_section_article.sys.ini</filename>
+	        <filename>da-DK.plg_redslider_sections_section_video.ini</filename>
+	        <filename>da-DK.plg_redslider_sections_section_video.sys.ini</filename>
+        </files>
+	</fileset>
+</extension>

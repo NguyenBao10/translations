@@ -26,15 +26,57 @@
 	</target>
 
 	<target name="copy-files" depends="get-transifex-files">
-		<echo>TODO: Copying translations</echo>
 
-	<!--
-	<copy
-			file="${config.template}"
-			tofile="${config.file}">	</target>
-	-->
+		<if>
+			<available file="${project.basedir}/packages/da-DK" type="file"/>
+			<then>
+				<delete file="${project.basedir}/packages/da-DK"/>
+			</then>
+		</if>
+
+		<echo>Copying translations:</echo>
+
+		<echo>* component</echo>
+		<copy file="${project.basedir}/transifex/translations/redslider2.com_redslider/da_DK.ini" tofile="${project.basedir}/packages/da-DK/component/backend/da-DK.com_redslider.ini" />
+		<copy file="${project.basedir}/transifex/translations/redslider2.com_redslider-sys/da_DK.ini" tofile="${project.basedir}/packages/da-DK/component/backend/da-DK.com_redslider.sys.ini" />
+
+		<echo>* mod_redslider</echo>
+		<copy file="${project.basedir}/transifex/translations/redslider2.mod_redslider/da_DK.ini" tofile="${project.basedir}/packages/da-DK/component/backend/da-DK.mod_redslider.ini" />
+		<copy file="${project.basedir}/transifex/translations/redslider2.mod_redslider-sys/da_DK.ini" tofile="${project.basedir}/packages/da-DK/component/backend/da-DK.mod_redslider.sys.ini" />
+
+		<echo>* plg_section_standard</echo>
+		<copy file="${project.basedir}/transifex/translations/redslider2.plg_redslider_sections_section_standard/da_DK.ini" tofile="${project.basedir}/packages/da-DK/component/backend/da-DK.plg_redslider_sections_section_standard.ini" />
+		<copy file="${project.basedir}/transifex/translations/redslider2.plg_redslider_sections_section_standard-sys/da_DK.ini" tofile="${project.basedir}/packages/da-DK/component/backend/da-DK.plg_redslider_sections_section_standard.sys.ini" />
+
+		<echo>* plg_section_article</echo>
+		<copy file="${project.basedir}/transifex/translations/redslider2.plg_redslider_sections_section_article/da_DK.ini" tofile="${project.basedir}/packages/da-DK/component/backend/da-DK.plg_redslider_sections_section_article.ini" />
+		<copy file="${project.basedir}/transifex/translations/redslider2.plg_redslider_sections_section_article-sys/da_DK.ini" tofile="${project.basedir}/packages/da-DK/component/backend/da-DK.plg_redslider_sections_section_article.sys.ini" />
+
+		<echo>* plg_section_video</echo>
+		<copy file="${project.basedir}/transifex/translations/redslider2.plg_redslider_sections_section_video/da_DK.ini" tofile="${project.basedir}/packages/da-DK/component/backend/da-DK.plg_redslider_sections_section_video.ini" />
+		<copy file="${project.basedir}/transifex/translations/redslider2.plg_redslider_sections_section_video-sys/da_DK.ini" tofile="${project.basedir}/packages/da-DK/component/backend/da-DK.plg_redslider_sections_section_video.sys.ini" />
+
+
 	</target>
-	<target name="generate-package" depends="copy-files">
-		<echo>TODO: Generating lang package</echo>
+	<target name="generate-package" >
+		<echo msg="Creating ZIP archives:"/>
+
+		<echo msg="* creating component package:"/>
+		<!-- Check if the ZIP file already exists. If yes, remove it -->
+		<if>
+			<available file="${project.basedir}/../transifex/redslider2/packages/da-DK.redSLIDER.zip" type="file"/>
+			<then>
+				<delete file="${project.basedir}/../transifex/redslider2/packages/da-DK.redSLIDER.zip"/>
+			</then>
+		</if>
+
+		<zip destfile="${project.basedir}/packages/da-DK.redSLIDER.zip">
+			<fileset dir="${project.basedir}/packages/da-DK/component">
+				<include name="**"/>
+				<exclude name=".*"/>
+			</fileset>
+		</zip>
+
+		<echo msg="Files copied and compressed in build directory OK!"/>
 	</target>
 </project>
