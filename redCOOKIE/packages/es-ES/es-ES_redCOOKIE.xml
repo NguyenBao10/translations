@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="file" method="upgrade" version="2.5">
+    <name>redCOOKIE - es-ES</name>
+    <version>2014-07-17</version>
+    <creationDate>17.07.2014</creationDate>
+    <author>redCOMPONENT.com</author>
+    <authorEmail>ole@redcomponent.com</authorEmail>
+    <authorUrl>http://redcomponent.com</authorUrl>
+    <copyright>© 2008-2014 - redCOMPONENT-com. All rights reserved!</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <description>
+        <![CDATA[Spanish language for redcookie component]]>
+    </description>
+    <fileset>
+        <files folder="" target="administrator/language/es-ES">
+	        <filename>es-ES.plg_system_redcookie.ini</filename>
+	        <filename>es-ES.plg_system_redcookie.sys.ini</filename>
+        </files>
+	</fileset>
+</extension>
