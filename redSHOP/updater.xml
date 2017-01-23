@@ -7,30 +7,29 @@
 <!-- ==================================================================  -->
 <project name="redshop" default="update">
 
-    <property file="../build.properties" override="true" />
+    <property file="../build.properties" override="true"/>
 
     <target name="github-clone">
         <echo>Updating en-GB redSHOP files</echo>
         <if>
-            <available file="${project.basedir}/tmp" type="dir" />
+            <available file="${project.basedir}/tmp" type="dir"/>
             <then>
-                <delete dir="${project.basedir}/tmp" />
+                <delete dir="${project.basedir}/tmp"/>
             </then>
         </if>
         <mkdir dir="${project.basedir}/tmp"/>
         <if>
-            <available file="${redshop_path}" type="dir" />
+            <available file="${redshop_path}" type="dir"/>
             <then>
                 <copy todir="${project.basedir}/tmp">
                     <fileset dir="${redshop_path}">
                         <include name="*.ini"/>
-                        <include name="**/*.ini" />
+                        <include name="**/*.ini"/>
                         <exclude name=".*"/>
                     </fileset>
                 </copy>
             </then>
         </if>
-        <!--<gitclone repository="https://github.com/redCOMPONENT-COM/redSHOP.git" targetPath="${project.basedir}/tmp/" />-->
     </target>
     <target name="update" depends="github-clone">
         <!-- overwrite component/admin resources -->
@@ -51,70 +50,46 @@
         </copy>
 
         <!-- overwrite modules/site resources -->
-        <echo msg="Copying MODULES language files" />
+        <echo msg="Copying MODULES language files"/>
         <foreach param="dirname" absparam="absname" target="explore-modules">
             <fileset dir="${project.basedir}/tmp/modules/site/">
-                <type type="dir" />
-                <depth max="0" min="0" />
+                <type type="dir"/>
+                <depth max="0" min="0"/>
             </fileset>
         </foreach>
 
         <!-- overwrite plugins resources -->
-        <echo msg="Copying PLUGINS language files" />
+        <echo msg="Copying PLUGINS language files"/>
         <foreach param="plugin_group" absparam="absname" target="explore-plugins-group">
             <fileset dir="${project.basedir}/tmp/plugins">
-                <type type="dir" />
-                <depth max="0" min="0" />
+                <type type="dir"/>
+                <depth max="0" min="0"/>
             </fileset>
         </foreach>
-
-        <!-- overwrite Plugins resources -->
-        <!--<echo msg="Copying plugin content/reditem_tags files"/>
-        <copy todir="${project.basedir}/source/plugins/content/reditem_tags/en-GB/">
-            <fileset dir="${project.basedir}/tmp/plugins/content/reditem_tags/language/en-GB">
-                <include name="*.ini"/>
-                <exclude name=".*"/>
-            </fileset>
-        </copy>
-        <echo msg="Copying plugin search/reditem_categories files"/>
-        <copy todir="${project.basedir}/source/plugins/search/reditem_categories/en-GB/">
-            <fileset dir="${project.basedir}/tmp/plugins/search/reditem_categories/language/en-GB">
-                <include name="*.ini"/>
-                <exclude name=".*"/>
-            </fileset>
-        </copy>
-        <echo msg="Copying plugin search/reditem_items files"/>
-        <copy todir="${project.basedir}/source/plugins/search/reditem_items/en-GB/">
-            <fileset dir="${project.basedir}/tmp/plugins/search/reditem_items/language/en-GB">
-                <include name="*.ini"/>
-                <exclude name=".*"/>
-            </fileset>
-        </copy>-->
     </target>
 
     <target name="explore-modules" description="Copying module language files">
-        <!--<echo msg="[Modules] Exploring ${dirname}" />-->
-        <property name="module_dir" value="${dirname}" override="true" />
+        <property name="module_dir" value="${dirname}" override="true"/>
         <foreach param="file" absparam="file" target="copy-modules-file">
             <fileset dir="${project.basedir}/tmp/modules/site/${dirname}/language/en-GB">
-                <type type="file" />
-                <depth max="0" min="0" />
+                <type type="file"/>
+                <depth max="0" min="0"/>
             </fileset>
         </foreach>
     </target>
 
     <target name="copy-modules-file">
         <copy tofile="${project.basedir}/source/modules/frontend/${module_dir}/en-GB/${file}"
-            file="${project.basedir}/tmp/modules/site/${module_dir}/language/en-GB/${file}">
+              file="${project.basedir}/tmp/modules/site/${module_dir}/language/en-GB/${file}">
         </copy>
     </target>
 
     <target name="explore-plugins-group">
-        <property name="plugin_group" value="${plugin_group}" override="true" />
+        <property name="plugin_group" value="${plugin_group}" override="true"/>
         <foreach param="plugin_name" absparam="plugin_name" target="explore-plugins">
             <fileset dir="${project.basedir}/tmp/plugins/${plugin_group}">
-                <type type="dir" />
-                <depth max="0" min="0" />
+                <type type="dir"/>
+                <depth max="0" min="0"/>
             </fileset>
         </foreach>
     </target>
@@ -122,8 +97,8 @@
     <target name="explore-plugins">
         <foreach param="file" absparam="file" target="copy-plugins-file">
             <fileset dir="${project.basedir}/tmp/plugins/${plugin_group}/${plugin_name}/language/en-GB">
-                <type type="file" />
-                <depth max="0" min="0" />
+                <type type="file"/>
+                <depth max="0" min="0"/>
             </fileset>
         </foreach>
     </target>
