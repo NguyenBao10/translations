@@ -7,9 +7,13 @@
 <!-- ==================================================================  -->
 <project name="redshop" default="update">
 
-    <property file="../build.properties" override="true"/>
+    <property file="./build.properties" override="true"/>
 
-    <target name="github-clone">
+    <tstamp>
+        <format property="build.date" pattern="%Y-%m-%d %H:%M:%S" />
+    </tstamp>
+
+    <target name="prepare">
         <echo>Updating en-GB redSHOP files</echo>
         <if>
             <available file="${project.basedir}/tmp" type="dir"/>
@@ -31,7 +35,19 @@
             </then>
         </if>
     </target>
-    <target name="update" depends="github-clone">
+    <target name="update" depends="doing">
+        <if>
+            <istrue value="${upload_to_github}" />
+            <then>
+                <gitcommit repository="${project.basedir}"
+                           allFiles="true"
+                           message="Updating language files on ${build.date}"/>
+
+                <gitpush repository="${project.basedir}" />
+            </then>
+        </if>
+    </target>
+    <target name="doing" depends="prepare">
         <!-- overwrite component/admin resources -->
         <echo msg="Copying redSHOP component language files"/>
         <copy todir="${project.basedir}/source/component/backend/en-GB/">
