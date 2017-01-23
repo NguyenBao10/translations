@@ -4,3 +4,6 @@
 
 # Do you want this PHING script to push the updated files?
 upload_to_github=true
+
+# Path of redSHOP repository
+redshop_path=
