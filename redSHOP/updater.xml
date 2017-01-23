@@ -46,6 +46,12 @@
                 <gitpush repository="${project.basedir}" />
             </then>
         </if>
+        <if>
+            <available file="${project.basedir}/tmp" type="dir"/>
+            <then>
+                <delete dir="${project.basedir}/tmp"/>
+            </then>
+        </if>
     </target>
     <target name="doing" depends="prepare">
         <!-- overwrite component/admin resources -->
