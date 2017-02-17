@@ -1,0 +1,15 @@
+# Properties files are configuration files used by PHING scripts containing:
+# key=value
+# more info at: https://redweb.atlassian.net/wiki/display/RWEB/Using+PHING+for+packaging+and+testing+an+extension
+
+# Do you want this PHING script to push the updated files?
+upload_to_github=true
+
+# Path of redSHOP repository
+redshop_path=
+
+# Transifex config
+transifex.host=https://www.transifex.com/OpenTranslators/redSHOP
+transifex.user=YOUR_TRANSIFEX_USER
+transifex.pass=YOUR_TRANSIFEX_PASSWORD
+
